@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FoilImage from "../components/FoilImage";
 
 export default function Home() {
   return (
     <section className="relative flex items-center justify-center min-h-[50vh] md:min-h-[60vh] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-200/60 via-orange-100/60 to-amber-300/60">
       <div className="foil-glossy absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <img
+        <FoilImage
           src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1200&q=80"
           alt="Шоколадная фабрика и мастер-классы"
-          className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.style.display = "none";
+          className="w-full h-full"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
           }}
         />
       </div>

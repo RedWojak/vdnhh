@@ -1,26 +1,64 @@
 import React, { useState } from "react";
+import FoilImage from "../components/FoilImage";
 
 const menu = [
-  { name: "Горячий шоколад", price: "350₽", desc: "Густой и ароматный" },
+  {
+    name: "Горячий шоколад",
+    price: "350₽",
+    desc: "Густой и ароматный",
+    img: "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=400&q=80",
+  },
   {
     name: "Шоколадный коктейль",
     price: "450₽",
     desc: "С мороженым и взбитыми сливками",
+    img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=400&q=80",
   },
-  { name: "Шоколадный торт", price: "280₽", desc: "Кусочек 150г" },
-  { name: "Шоколадные конфеты", price: "120₽", desc: "3 шт. ручной работы" },
-  { name: "Кофе с шоколадом", price: "320₽", desc: "Латте или капучино" },
+  {
+    name: "Шоколадный торт",
+    price: "280₽",
+    desc: "Кусочек 150г",
+    img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Шоколадные конфеты",
+    price: "120₽",
+    desc: "3 шт. ручной работы",
+    img: "https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Кофе с шоколадом",
+    price: "320₽",
+    desc: "Латте или капучино",
+    img: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80",
+  },
 ];
 
 const shop = [
-  { name: "Набор конфет", price: "890₽", desc: "12 шт. в красивой коробке" },
-  { name: "Шоколадная плитка", price: "450₽", desc: "72% какао, 100г" },
+  {
+    name: "Набор конфет",
+    price: "890₽",
+    desc: "12 шт. в красивой коробке",
+    img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    name: "Шоколадная плитка",
+    price: "450₽",
+    desc: "72% какао, 100г",
+    img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400&q=80",
+  },
   {
     name: "Подарочный набор",
     price: "1200₽",
     desc: "Конфеты + горячий шоколад",
+    img: "https://images.unsplash.com/photo-1511381939415-e44015466834?auto=format&fit=crop&w=400&q=80",
   },
-  { name: "Шоколадные фигурки", price: "350₽", desc: "Ручная лепка" },
+  {
+    name: "Шоколадные фигурки",
+    price: "350₽",
+    desc: "Ручная лепка",
+    img: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=400&q=80",
+  },
 ];
 
 export default function CafeShop() {
@@ -50,9 +88,21 @@ export default function CafeShop() {
             {menu.map((item, i) => (
               <div
                 key={i}
-                className="bg-amber-50/80 rounded-xl p-4 shadow flex justify-between items-center"
+                className="bg-amber-50/80 rounded-xl p-4 shadow flex items-center gap-4"
               >
-                <div>
+                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                  <FoilImage
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div className="flex-1">
                   <div className="font-bold text-amber-700">{item.name}</div>
                   <div className="text-gray-600 text-sm">{item.desc}</div>
                 </div>
@@ -69,9 +119,21 @@ export default function CafeShop() {
             {shop.map((item, i) => (
               <div
                 key={i}
-                className="bg-orange-50/80 rounded-xl p-4 shadow flex justify-between items-center"
+                className="bg-orange-50/80 rounded-xl p-4 shadow flex items-center gap-4"
               >
-                <div>
+                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                  <FoilImage
+                    src={item.img}
+                    alt={item.name}
+                    className="w-full h-full"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                <div className="flex-1">
                   <div className="font-bold text-amber-700">{item.name}</div>
                   <div className="text-gray-600 text-sm">{item.desc}</div>
                 </div>

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
+import FoilImage from "../components/FoilImage";
 
 const formats = [
   {
     name: "День рождения",
     desc: "Праздник с мастер-классом, аниматорами и сладким столом.",
+    img: "https://images.unsplash.com/photo-1464207687429-7505649dae38?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Выпускной",
     desc: "Яркая программа для выпускников с шоколадным шоу.",
+    img: "https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=600&q=80",
   },
   {
     name: "Семейный праздник",
     desc: "Тёплая атмосфера, игры, подарки и угощения.",
+    img: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=600&q=80",
   },
 ];
 
@@ -53,8 +57,24 @@ export default function Events() {
           <ul className="space-y-3">
             {formats.map((f, i) => (
               <li key={i} className="bg-amber-50/80 rounded-xl p-4 shadow">
-                <div className="font-bold text-amber-700">{f.name}</div>
-                <div className="text-gray-700 text-sm">{f.desc}</div>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                    <FoilImage
+                      src={f.img}
+                      alt={f.name}
+                      className="w-full h-full"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <div className="font-bold text-amber-700">{f.name}</div>
+                    <div className="text-gray-700 text-sm">{f.desc}</div>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>

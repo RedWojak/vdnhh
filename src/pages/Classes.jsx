@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FoilImage from "../components/FoilImage";
 
 const classes = [
   {
@@ -53,24 +54,17 @@ export default function Classes() {
         {classes.map((cls, i) => (
           <div
             key={i}
-            className="bg-amber-50/80 rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center animate-fade-in-up delay-200"
+            className="bg-amber-50/80 rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center animate-fade-in-up delay-200 h-full"
           >
             <div className="foil-glossy w-full h-32 md:h-40 mb-4 rounded-lg md:rounded-xl overflow-hidden">
-              <img
+              <FoilImage
                 src={cls.img}
                 alt={cls.title}
-                className="w-full h-32 md:h-40 object-cover rounded-lg md:rounded-xl"
-                onError={(e) => {
-                  e.target.style.display = "none";
-                  e.target.nextSibling.style.display = "flex";
+                className="w-full h-full rounded-lg md:rounded-xl"
+                style={{
+                  objectFit: "cover",
                 }}
               />
-            </div>
-            <div
-              className="w-full h-32 md:h-40 bg-gradient-to-br from-amber-200 to-orange-300 rounded-lg md:rounded-xl mb-4 flex items-center justify-center text-amber-800 font-bold text-sm md:text-lg"
-              style={{ display: "none" }}
-            >
-              {cls.title}
             </div>
             <h3 className="text-lg md:text-2xl font-semibold text-amber-600 mb-2 text-center">
               {cls.title}
@@ -88,12 +82,13 @@ export default function Classes() {
                 </span>
               ))}
             </div>
-            <div className="text-base md:text-lg font-bold text-amber-700 mb-4">
+            <div className="text-base md:text-lg font-bold text-amber-700 mb-4 mt-auto">
               {cls.price}
             </div>
             <button
               onClick={() => openForm(cls)}
-              className="px-4 md:px-6 py-2 md:py-3 rounded-full bg-amber-600 text-white font-bold text-sm md:text-base shadow hover:bg-orange-600 hover:text-white transition-all duration-300 animate-bounce-in w-full max-w-xs"
+              className="px-4 md:px-6 py-2 md:py-3 rounded-full bg-amber-600 text-white font-bold text-sm md:text-base shadow hover:bg-orange-600 hover:text-white transition-all duration-300 animate-bounce-in w-full max-w-xs mt-2"
+              style={{ marginTop: 0 }}
             >
               Записаться
             </button>
