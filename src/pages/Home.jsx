@@ -11,12 +11,18 @@ export default function Home() {
           e.target.style.display = "none";
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-orange-800/30 to-amber-100/10 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10" />
       <div className="relative z-20 flex flex-col items-center justify-center py-24 px-4 text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-amber-800 drop-shadow-lg mb-6 animate-fade-in-up">
+        <h1
+          className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl mb-6 animate-fade-in-up"
+          style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
+        >
           Фабрика шоколадных открытий
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 font-medium mb-10 animate-fade-in-up delay-200">
+        <p
+          className="text-xl md:text-2xl text-white font-bold mb-10 animate-fade-in-up delay-200 drop-shadow-lg"
+          style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.8)" }}
+        >
           Центр сладких впечатлений, творчества и семейных открытий
         </p>
         <div className="flex flex-col sm:flex-row gap-6">
