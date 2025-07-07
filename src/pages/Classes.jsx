@@ -45,36 +45,40 @@ export default function Classes() {
   }
 
   return (
-    <section className="space-y-12">
-      <h2 className="text-4xl font-bold mb-8 text-amber-700 animate-fade-in-up">
+    <section className="space-y-8 md:space-y-12">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-amber-700 animate-fade-in-up text-center">
         Мастер-классы
       </h2>
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {classes.map((cls, i) => (
           <div
             key={i}
-            className="bg-amber-50/80 rounded-2xl shadow-lg p-4 flex flex-col items-center animate-fade-in-up delay-200"
+            className="bg-amber-50/80 rounded-xl md:rounded-2xl shadow-lg p-4 md:p-6 flex flex-col items-center animate-fade-in-up delay-200"
           >
-            <img
-              src={cls.img}
-              alt={cls.title}
-              className="w-full h-40 object-cover rounded-xl mb-4"
-              onError={(e) => {
-                e.target.style.display = "none";
-                e.target.nextSibling.style.display = "block";
-              }}
-            />
+            <div className="foil-glossy w-full h-32 md:h-40 mb-4 rounded-lg md:rounded-xl overflow-hidden">
+              <img
+                src={cls.img}
+                alt={cls.title}
+                className="w-full h-32 md:h-40 object-cover rounded-lg md:rounded-xl"
+                onError={(e) => {
+                  e.target.style.display = "none";
+                  e.target.nextSibling.style.display = "flex";
+                }}
+              />
+            </div>
             <div
-              className="w-full h-40 bg-gradient-to-br from-amber-200 to-orange-300 rounded-xl mb-4 flex items-center justify-center text-amber-800 font-bold text-lg"
+              className="w-full h-32 md:h-40 bg-gradient-to-br from-amber-200 to-orange-300 rounded-lg md:rounded-xl mb-4 flex items-center justify-center text-amber-800 font-bold text-sm md:text-lg"
               style={{ display: "none" }}
             >
               {cls.title}
             </div>
-            <h3 className="text-2xl font-semibold text-amber-600 mb-2">
+            <h3 className="text-lg md:text-2xl font-semibold text-amber-600 mb-2 text-center">
               {cls.title}
             </h3>
-            <p className="text-gray-700 mb-2">{cls.desc}</p>
-            <div className="flex gap-2 mb-2">
+            <p className="text-gray-700 mb-3 text-sm md:text-base text-center">
+              {cls.desc}
+            </p>
+            <div className="flex flex-wrap gap-2 mb-3 justify-center">
               {cls.times.map((t, j) => (
                 <span
                   key={j}
@@ -84,12 +88,12 @@ export default function Classes() {
                 </span>
               ))}
             </div>
-            <div className="text-lg font-bold text-amber-700 mb-4">
+            <div className="text-base md:text-lg font-bold text-amber-700 mb-4">
               {cls.price}
             </div>
             <button
               onClick={() => openForm(cls)}
-              className="px-6 py-2 rounded-full bg-amber-600 text-white font-bold shadow hover:bg-orange-600 hover:text-white transition-all duration-300 animate-bounce-in"
+              className="px-4 md:px-6 py-2 md:py-3 rounded-full bg-amber-600 text-white font-bold text-sm md:text-base shadow hover:bg-orange-600 hover:text-white transition-all duration-300 animate-bounce-in w-full max-w-xs"
             >
               Записаться
             </button>
@@ -97,12 +101,12 @@ export default function Classes() {
         ))}
       </div>
       {selected && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
           <form
             onSubmit={handleSubmit}
-            className="bg-amber-50 rounded-2xl p-8 shadow-2xl w-full max-w-md animate-fade-in-up"
+            className="bg-amber-50 rounded-xl md:rounded-2xl p-6 md:p-8 shadow-2xl w-full max-w-md animate-fade-in-up"
           >
-            <h4 className="text-2xl font-bold mb-4 text-amber-700">
+            <h4 className="text-xl md:text-2xl font-bold mb-4 text-amber-700">
               Запись на: {selected.title}
             </h4>
             <input
@@ -127,7 +131,7 @@ export default function Classes() {
               readOnly
               className="w-full mb-3 px-4 py-2 rounded border bg-gray-100"
             />
-            <div className="flex gap-4 mt-4">
+            <div className="flex flex-col sm:flex-row gap-4 mt-4">
               <button
                 type="submit"
                 className="flex-1 px-4 py-2 rounded-full bg-amber-600 text-white font-bold shadow hover:bg-orange-600 hover:text-white transition"
@@ -143,7 +147,7 @@ export default function Classes() {
               </button>
             </div>
             {sent && (
-              <div className="text-green-600 font-bold mt-4">
+              <div className="text-green-600 font-bold mt-4 text-center">
                 Заявка отправлена!
               </div>
             )}

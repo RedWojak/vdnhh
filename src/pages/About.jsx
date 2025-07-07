@@ -36,7 +36,7 @@ export default function About() {
       </div>
       <div className="flex flex-wrap justify-center gap-8 animate-fade-in-up delay-200">
         {gallery.map((src, i) => (
-          <div key={i} className="relative">
+          <div key={i} className="relative foil-glossy w-64 h-40">
             <img
               src={src}
               alt="Галерея центра"

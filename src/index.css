@@ -69,71 +69,38 @@ button:focus-visible {
   }
 }
 
-/* Candy pattern animations */
-@keyframes candy-float {
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
-}
-
-@keyframes candy-spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.candy-pattern {
+.foil-glossy {
   position: relative;
+  z-index: 0;
   overflow: hidden;
 }
-
-.candy-pattern::before {
+.foil-glossy::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-      circle at 25% 25%,
-      rgba(251, 191, 36, 0.1) 2px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 75% 75%,
-      rgba(249, 115, 22, 0.1) 2px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(245, 158, 11, 0.1) 1px,
-      transparent 1px
-    );
-  background-size: 50px 50px, 30px 30px, 20px 20px;
-  background-position: 0 0, 25px 25px, 10px 10px;
-  animation: candy-float 6s ease-in-out infinite;
+  inset: 0;
   pointer-events: none;
-  z-index: -1;
+  z-index: 2;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35) 10%,
+    rgba(255, 255, 255, 0.05) 40%,
+    rgba(255, 255, 255, 0.25) 60%,
+    rgba(255, 255, 255, 0.05) 90%
+  );
+  mix-blend-mode: lighten;
+  opacity: 0.85;
+  border-radius: inherit;
+  transition: opacity 0.3s;
 }
-
-.chocolate-dots {
-  background-image: radial-gradient(
-      circle at 20% 20%,
-      rgba(139, 69, 19, 0.1) 3px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 80% 80%,
-      rgba(160, 82, 45, 0.1) 2px,
-      transparent 2px
-    );
-  background-size: 40px 40px, 25px 25px;
-  background-position: 0 0, 20px 20px;
+.foil-glossy:hover::after {
+  opacity: 1;
+}
+.foil-glossy img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  z-index: 1;
+  position: relative;
 }
