@@ -2,10 +2,35 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FoilImage from "../components/FoilImage";
 
+// SVG pattern: flat file for CSS background
+const wavePattern = "/background-pattern.svg";
+
 export default function Home() {
   return (
-    <section className="relative flex items-center justify-center min-h-[50vh] md:min-h-[60vh] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-200/60 via-orange-100/60 to-amber-300/60">
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    <section
+      className="relative flex items-center justify-center min-h-[50vh] md:min-h-[60vh] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl"
+      style={{
+        backgroundColor: "#6B3F1D",
+      }}
+    >
+      {/* Background pattern layer */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{
+          zIndex: 1,
+          pointerEvents: "none",
+          backgroundImage: `url('${wavePattern}')`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.7,
+        }}
+      />
+      {/* Banner image as background */}
+      <div
+        className="absolute inset-0 w-full h-full"
+        style={{ zIndex: 5, pointerEvents: "none" }}
+      >
         <FoilImage
           src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1200&q=80"
           alt="Шоколадная фабрика и мастер-классы"
@@ -17,8 +42,16 @@ export default function Home() {
           }}
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent z-10 pointer-events-none" />
-      <div className="relative z-20 flex flex-col items-center justify-center py-12 md:py-24 px-4 text-center w-full">
+      {/* Overlay for darkening the image */}
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"
+        style={{ zIndex: 20, pointerEvents: "none" }}
+      />
+      {/* Content centered above the image */}
+      <div
+        className="relative flex flex-col items-center justify-center py-12 md:py-24 px-4 text-center w-full"
+        style={{ zIndex: 30 }}
+      >
         <h1
           className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white drop-shadow-2xl mb-4 md:mb-6 animate-fade-in-up"
           style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}
@@ -31,7 +64,7 @@ export default function Home() {
         >
           Центр сладких впечатлений, творчества и семейных открытий
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mx-auto max-w-md">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mx-auto max-w-md mt-10">
           <Link
             to="/tickets"
             className="px-6 md:px-8 py-3 md:py-4 rounded-full bg-amber-500 text-white font-bold text-base md:text-lg shadow-lg hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in text-center"

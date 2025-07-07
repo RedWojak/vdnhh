@@ -104,3 +104,16 @@ button:focus-visible {
   z-index: 1;
   position: relative;
 }
+
+@keyframes bgWavesMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.bg-animate-waves {
+  animation: bgWavesMove 40s linear infinite;
+}

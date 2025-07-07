@@ -212,19 +212,27 @@ function Header() {
 function Layout({ children }) {
   return (
     <div
-      className="min-h-screen pt-20"
+      className="min-h-screen pt-20 relative bg-animate-waves"
       style={{
-        background: `
-        radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
-        linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 237, 213, 0.3) 50%, rgba(254, 226, 226, 0.3) 100%),
-        repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251, 191, 36, 0.05) 10deg, transparent 20deg)
-      `,
+        backgroundImage: "url('/background-pattern.svg')",
+        backgroundRepeat: "repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "0% 0%",
+        backgroundColor: "#6B3F1D",
       }}
     >
+      {/* Light overlay to reduce contrast */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "rgba(255,255,255,0.18)",
+          zIndex: 1,
+        }}
+      />
       <Header />
-      <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
+      <main className="max-w-5xl mx-auto px-4 py-8 relative z-10">
+        {children}
+      </main>
     </div>
   );
 }
