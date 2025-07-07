@@ -1,0 +1,39 @@
+import React from "react";
+
+export default function Home() {
+  return (
+    <section className="relative flex flex-col items-center justify-center min-h-[60vh] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-200/60 via-orange-100/60 to-amber-300/60">
+      <img
+        src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1200&q=80"
+        alt="Шоколадная фабрика и мастер-классы"
+        className="absolute inset-0 w-full h-full object-cover object-center opacity-60 blur-[2px] scale-105 z-0 transition-all duration-700"
+        onError={(e) => {
+          e.target.style.display = "none";
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-orange-800/30 to-amber-100/10 z-10" />
+      <div className="relative z-20 flex flex-col items-center justify-center py-24 px-4 text-center">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-amber-800 drop-shadow-lg mb-6 animate-fade-in-up">
+          Фабрика шоколадных открытий
+        </h1>
+        <p className="text-xl md:text-2xl text-white/90 font-medium mb-10 animate-fade-in-up delay-200">
+          Центр сладких впечатлений, творчества и семейных открытий
+        </p>
+        <div className="flex flex-col sm:flex-row gap-6">
+          <a
+            href="#tickets"
+            className="px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg shadow-lg hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in"
+          >
+            Оставить заявку
+          </a>
+          <a
+            href="#classes"
+            className="px-8 py-4 rounded-full bg-orange-600 text-white font-bold text-lg shadow-lg hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in delay-150"
+          >
+            Мастер-классы
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
