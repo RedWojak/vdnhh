@@ -117,3 +117,31 @@ button:focus-visible {
 .bg-animate-waves {
   animation: bgWavesMove 40s linear infinite;
 }
+
+@keyframes foilBgMove {
+  0% {
+    background-position: 0% 0%, 100% 100%, 50% 50%;
+  }
+  100% {
+    background-position: 100% 100%, 0% 0%, 50% 0%;
+  }
+}
+
+.foil-bg-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(255, 255, 255, 0.7) 0%,
+      transparent 60%
+    ),
+    linear-gradient(120deg, rgba(255, 215, 0, 0.15) 30%, transparent 70%),
+    linear-gradient(60deg, rgba(255, 140, 0, 0.12) 20%, transparent 80%);
+  background-size: 200% 200%, 150% 150%, 300% 300%;
+  background-repeat: no-repeat;
+  animation: foilBgMove 18s linear infinite alternate;
+}

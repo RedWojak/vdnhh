@@ -229,6 +229,8 @@ function Layout({ children }) {
           zIndex: 1,
         }}
       />
+      {/* Foil shader overlay */}
+      <div className="foil-bg-overlay" />
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-8 relative z-10">
         {children}
@@ -243,9 +245,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<Home />} />
+          <Route path="/tickets" element={<Home />} />
           <Route path="/classes" element={<Classes />} />
-          <Route path="/tickets" element={<Tickets />} />
           <Route path="/events" element={<Events />} />
           <Route path="/cafeshop" element={<CafeShop />} />
           <Route path="/news" element={<News />} />
