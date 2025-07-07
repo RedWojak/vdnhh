@@ -5,7 +5,7 @@ import FoilImage from "../components/FoilImage";
 export default function Home() {
   return (
     <section className="relative flex items-center justify-center min-h-[50vh] md:min-h-[60vh] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-200/60 via-orange-100/60 to-amber-300/60">
-      <div className="foil-glossy absolute inset-0 w-full h-full z-0 pointer-events-none">
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <FoilImage
           src="https://images.unsplash.com/photo-1481391319762-47dff72954d9?auto=format&fit=crop&w=1200&q=80"
           alt="Шоколадная фабрика и мастер-классы"
@@ -31,7 +31,7 @@ export default function Home() {
         >
           Центр сладких впечатлений, творчества и семейных открытий
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full max-w-sm md:max-w-none">
+        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center mx-auto max-w-md">
           <Link
             to="/tickets"
             className="px-6 md:px-8 py-3 md:py-4 rounded-full bg-amber-500 text-white font-bold text-base md:text-lg shadow-lg hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in text-center"

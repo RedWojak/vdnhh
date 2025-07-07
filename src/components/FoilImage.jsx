@@ -29,7 +29,7 @@ const FoilImage = ({ src, alt, className = "", style = {} }) => {
       onMouseLeave={handleMouseLeave}
       style={{
         position: "relative",
-        display: "inline-block",
+        display: "block",
         overflow: "hidden",
         borderRadius: "8px",
         cursor: "pointer",
