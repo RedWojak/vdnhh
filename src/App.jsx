@@ -96,7 +96,18 @@ function Header() {
 
 function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-amber-100 pt-20">
+    <div
+      className="min-h-screen pt-20 candy-pattern"
+      style={{
+        background: `
+        radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, rgba(254, 243, 199, 0.3) 0%, rgba(255, 237, 213, 0.3) 50%, rgba(254, 226, 226, 0.3) 100%),
+        repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251, 191, 36, 0.05) 10deg, transparent 20deg)
+      `,
+      }}
+    >
       <Header />
       <main className="max-w-5xl mx-auto px-4 py-8">{children}</main>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -26,18 +27,18 @@ export default function Home() {
           Центр сладких впечатлений, творчества и семейных открытий
         </p>
         <div className="flex flex-col sm:flex-row gap-6">
-          <a
-            href="#tickets"
+          <Link
+            to="/tickets"
             className="px-8 py-4 rounded-full bg-amber-500 text-white font-bold text-lg shadow-lg hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in"
           >
             Оставить заявку
-          </a>
-          <a
-            href="#classes"
+          </Link>
+          <Link
+            to="/classes"
             className="px-8 py-4 rounded-full bg-orange-600 text-white font-bold text-lg shadow-lg hover:bg-amber-500 hover:text-white transition-all duration-300 transform hover:scale-105 animate-bounce-in delay-150"
           >
             Мастер-классы
-          </a>
+          </Link>
         </div>
       </div>
     </section>
